@@ -4,7 +4,8 @@ Games = new Mongo.Collection("games");
 
 if (Meteor.isServer){
 	Meteor.publish('games',function(){
-		return Games.find({currentTurn: this.userId});
+		//return Games.find({currentTurn: this.userId});
+		return Games.find();
 	});
 
 	Meteor.publish('users',function(){
@@ -19,8 +20,8 @@ if (Meteor.isClient){
 
 
 Meteor.methods({
-	createGame: function(otherPlayerId){
-		var game = GameFactory.createGame([Meteor.userId(),otherPlayerId]);
+	createGame: function(playerIds){
+		var game = GameFactory.createGame(playerIds);
 		Games.insert(game);
 	},
 	takeTurn: function(gameId,id,card){

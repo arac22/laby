@@ -57,9 +57,11 @@ function createCardsDeck(){
 	var suits = ['I','L','T'],
 		cards = [];
 
+	var counter = 0;
 	suits.forEach(function(suit){
 		for (var i = 1; i <= 3; i++){
 			cards.push({
+				index: counter++,
 				suit: suit,
 				value:i,
 				name:suit + '_' +i,
@@ -72,7 +74,7 @@ function createCardsDeck(){
 }
 
 function createTargetsDeck(){
-	var suits = ['T1','T2','T3'],
+	var suits = ['G1','G2','G3'],
 		cards = [];
 
 	suits.forEach(function(suit){

@@ -4,7 +4,7 @@
 	<a href="/">Home</a>
 	<div>
 		<p>game id: {{_id}}</p>
-		<p>turn: {{currentTurn}}</p>
+		<p>turn: {{currentTurn.username}}</p>
 		<p>inProgress: {{inProgress}}</p>
 		<p>started from: {{started}}</p>
 		{{>players}}
@@ -39,7 +39,7 @@
 
 <template name='player'>
 	<div>
-		Player {{id}}
+		Player {{_id}} {{username}}
 		{{>hand}}
 	</div>
 </template>

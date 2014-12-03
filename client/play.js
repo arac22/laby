@@ -1,28 +1,20 @@
-Template.boardCard.events({
-  	"click .card" : function(event,template){
-  		// var r = Rows.findOne({_id:this._row});
-  		// r.cells[this.index-1].rotation = rotateCW(r.cells[this.index-1].rotation); 
-  		// Rows.update(this._row, r);
-      console.log(this);
-	}		
+
+Template.play.events({
+  	"click .card" : function(event,template){      
+      // template.data is a game 
+      // this is a card
+      var gameId = template.data._id;
+      var game = Games.findOne({_id: gameId});
+      console.log('game: '+game);
+      console.log('this' + this);
+      game.board[this.index].rotation = rotateCW( game.board[this.index].rotation );
+      Games.update(gameId,game);
+ 	}		
 });
 
 
 function rotateCW(rotation){
-	var newRotation = 'rotate0'
-	switch (rotation) {
-    case 'rotate0':
-    	newRotation = 'rotate90';
-        break;
-    case 'rotate90':
-    	newRotation = 'rotate180';
-        break;
-    case 'rotate180':
-    	newRotation = 'rotate270';
-        break;
-    case 'rotate270':
-    	newRotation = 'rotate0';
-        break;
-	} 
-	return newRotation;
+  rotation++;
+  if (rotation >3) rotation = 0;
+  return rotation;
 }
