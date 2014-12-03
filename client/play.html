@@ -17,14 +17,27 @@
 
 <template name='board'>
 	Board Template
-	{{#each board}}
-		{{>boardCard}}
-	{{/each}}
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+		{{#each board.rows}}
+			{{> boardRow}}
+		{{/each}}
+		</table>
+	</div>
 </template>
+
+<template name='boardRow'>
+		<tr>
+			{{#each this}}
+				<td>{{> boardCard}}</td>
+			{{/each}}
+		</tr>	
+</template>
+
 
 <template name='boardCard'>
 	<div class='card {{suit}}-shape rotate{{rotation}}'>
-		{{name}}
+		<span class='boardName' >{{name}}</span>
 	</div>
 </template>
 
