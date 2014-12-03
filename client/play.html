@@ -1,0 +1,61 @@
+<template name='play'>
+<div id='play'>
+	Play Template
+	<a href="/">Home</a>
+	<div>
+		<p>game id: {{_id}}</p>
+		<p>turn: {{currentTurn}}</p>
+		<p>inProgress: {{inProgress}}</p>
+		<p>started from: {{started}}</p>
+		{{>players}}
+		{{>board}}
+
+	</div>
+</div>
+</template>
+
+
+<template name='board'>
+	Board Template
+	{{#each board}}
+		{{>boardCard}}
+	{{/each}}
+</template>
+
+<template name='boardCard'>
+	<div class='card {{suit}}-shape rotate{{rotation}}'>
+		{{name}}
+	</div>
+</template>
+
+<template name='players'>
+	<div>	
+		Players
+		{{#each players}}
+			{{>player}}
+		{{/each}}
+	</div>
+</template>
+
+<template name='player'>
+	<div>
+		Player {{id}}
+		{{>hand}}
+	</div>
+</template>
+
+<template name='hand'>
+	<div>
+		Hand
+		{{#each hand}}
+			{{>targetCard}}
+		{{/each}}
+	</div>
+</template>
+
+<template name='targetCard'>
+	<div>
+		target: {{name}}
+	</div>
+</template>
+

@@ -1,0 +1,47 @@
+<template name='home'>
+<div id='home'>
+	<div>
+		Home Template
+	</div>
+	{{>buttons}}
+	{{>myTable}}
+
+</div>
+</template>
+
+<template name="buttons">
+    <button type="button" id="btnNewGame" class="btn btn-primary">New Game</button>
+</template>
+
+<template name="tableCell">
+  <td>{{_id}}<img src="html5.gif" alt="html5 rocks" height="48" width="48">
+</td>
+</template>
+
+<template name="tableHeader">
+  <tr>
+    <th>Game</th>
+    <th>Players</th>
+    <th>Board</th>
+  </tr>
+</template>
+
+
+<template name="tableRow">
+  <tr>
+    <td><a href='/play/{{_id}}'> Game{{_id}}</a></td>
+    <td>{{players.length}}</td>
+    <td>{{board.length}}</td>
+  </tr>
+</template>
+
+<template name="myTable">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        {{>tableHeader}}
+        {{#each games}}
+          {{>tableRow}}
+        {{/each}}  
+    </table>
+  </div>
+</template>

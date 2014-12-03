@@ -1,0 +1,23 @@
+<template name='row'>
+<div id='row'>
+	Row Template
+	<a href="/">Home</a>
+	<div>
+		{{_id}}		
+	</div>
+	<div>
+		{{#each cells}}
+			{{> rowCell}}
+		{{/each}}
+	</div>
+
+</div>
+</template>
+
+<template name='rowCell'>
+<div class="card {{suit}} {{rotation}}">
+	<div>{{_id}}</div>
+	<div>{{suit}}</div>
+	<div>{{rotation}}</div>
+</div>
+</template>

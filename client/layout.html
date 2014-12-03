@@ -1,0 +1,10 @@
+<template name='layout'>
+	<div id='main' class="container">
+	    <header class="navbar">
+      		<span id='login-buttons'>{{>loginButtons align="right"}}</span>
+      		<h1>Laby JS</h1>
+    	</header>
+		Main Layout
+		{{> yield}}
+	</div>
+</template>
