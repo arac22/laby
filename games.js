@@ -24,6 +24,9 @@ Meteor.methods({
 		var game = GameFactory.createGame(playerIds);
 		Games.insert(game);
 	},
+	deleteGame: function(gameId){
+		Games.remove({_id:gameId});
+	},
 	takeTurn: function(gameId,id,card){
 		console.log(id,card);
 	}

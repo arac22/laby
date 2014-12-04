@@ -1,22 +1,21 @@
 <template name='play'>
 <div id='play'>
-	Play Template
-	<a href="/">Home</a>
-	<div>
-		<p>game id: {{_id}}</p>
-		<p>turn: {{currentTurn.username}}</p>
-		<p>inProgress: {{inProgress}}</p>
-		<p>started from: {{started}}</p>
-		{{>players}}
-		{{>board}}
-
+	<div class="row">
+	<ul class="list-unstyled">
+		<strong>Game</strong>
+		<li>game id: {{_id}}</li>
+		<li>turn: {{currentTurn.username}}</li>
+		<li>inProgress: {{inProgress}}</li>
+		<li>started from: {{started}}</li>		
+	</ul>
 	</div>
+	{{>players}}
+	{{>board}}
 </div>
 </template>
 
 
 <template name='board'>
-	Board Template
 	<div class="table-responsive">
 		<table class="table table-bordered table-striped">
 		{{#each board.rows}}
@@ -42,8 +41,8 @@
 </template>
 
 <template name='players'>
-	<div>	
-		Players
+	<div>
+		<strong>Players</strong>	
 		{{#each players}}
 			{{>player}}
 		{{/each}}
@@ -59,7 +58,7 @@
 
 <template name='hand'>
 	<div>
-		Hand
+		<i>Hand</i>
 		{{#each hand}}
 			{{>targetCard}}
 		{{/each}}

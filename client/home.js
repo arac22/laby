@@ -30,6 +30,15 @@ Template.tableRow.events({
 			console.log('Please SignIn first');
 		}
   		//Router.go('/play');  	 
+  	},
+	"click #btnDeleteGame" : function(event){
+		var myId = Meteor.userId();
+		if (myId){
+	  		Meteor.call('deleteGame', this._id);
+		} else {
+			console.log('Please SignIn first');
+		}
+  		//Router.go('/play');  	 
   	}
 });
 
