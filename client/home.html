@@ -10,10 +10,17 @@
     <button type="button" id="btnNewGame" class="btn btn-primary">New Game</button>
 </template>
 
-<template name="tableCell">
-  <td>{{_id}}<img src="html5.gif" alt="html5 rocks" height="48" width="48">
-</td>
+<template name="myTable">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        {{>tableHeader}}
+        {{#each games}}
+          {{>tableRow}}
+        {{/each}}  
+    </table>
+  </div>
 </template>
+
 
 <template name="tableHeader">
   <tr>
@@ -27,24 +34,24 @@
 
 <template name="tableRow">
   <tr>
-    <td><a href='/play/{{_id}}'> Game{{_id}}</a></td>
-    <td>{{players.length}}</td>
+    <td><a href='/play/{{_id}}'> {{_id}}</a></td>
+    <td>
+      <div>     
+        {{#each players}}
+          {{>playerName}}
+        {{/each}} 
+      </div> 
+    </td>
     <td>{{board.length}}</td>
     <td>
-      <button type="button" id="btnJoinGame" class="btn btn-primary">Join</button>
-      <button type="button" id="btnQuitGame" class="btn btn-primary">Quit</button>
       <button type="button" id="btnDeleteGame" class="btn btn-primary">Delete</button>
     </td>
   </tr>
 </template>
 
-<template name="myTable">
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped">
-        {{>tableHeader}}
-        {{#each games}}
-          {{>tableRow}}
-        {{/each}}  
-    </table>
+<template name="playerName">
+  <div>
+    {{username}}  
   </div>
 </template>
+

@@ -45,7 +45,8 @@ function createPlayers(ids){
 			pile: [],
 			score: {
 				targetsReached: 0
-			}
+			},
+			username: Meteor.users.findOne({_id:id}).username
 		});
 
 	});	

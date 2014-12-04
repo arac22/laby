@@ -12,7 +12,11 @@ Template.buttons.events({
 	"click #btnNewGame" : function(event){
 		var myId = Meteor.userId();
 		if (myId){
-	  		Meteor.call('createGame', [myId]);
+			var ids = [myId];
+			Meteor.users.find({ _id:{$ne:myId}}).forEach(function(u){
+				ids.push(u._id);
+			});
+	  		Meteor.call('createGame', ids);
 		} else {
 			console.log('Please SignIn first');
 		}
@@ -22,15 +26,6 @@ Template.buttons.events({
 
 
 Template.tableRow.events({
-	"click #btnJoinGame" : function(event){
-		var myId = Meteor.userId();
-		if (myId){
-	  		Router.go('/play/'+ this._id);  	 
-		} else {
-			console.log('Please SignIn first');
-		}
-  		//Router.go('/play');  	 
-  	},
 	"click #btnDeleteGame" : function(event){
 		var myId = Meteor.userId();
 		if (myId){

@@ -27,6 +27,12 @@ header {
 	position: relative;
 }
 
+#login-buttons {
+	display: block;
+	text-align: right;
+}
+
+
 */
 .container {
 	margin: 0 auto;
@@ -43,10 +49,6 @@ ul {
 }
 
 
-#login-buttons {
-	display: block;
-	text-align: right;
-}
 
 .card {
 	background: #fff;
