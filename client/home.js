@@ -14,7 +14,9 @@ Template.buttons.events({
 		if (myId){
 			var ids = [myId];
 			Meteor.users.find({ _id:{$ne:myId}}).forEach(function(u){
-				ids.push(u._id);
+				if (u.status.online){
+					ids.push(u._id);
+				}
 			});
 	  		Meteor.call('createGame', ids);
 		} else {

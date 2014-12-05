@@ -10,7 +10,7 @@ if (Meteor.isServer){
 
 	Meteor.publish('users',function(){
 		//return Meteor.users.find();
-		return Meteor.users.find({},{fields: {username:1}});
+		return Meteor.users.find({},{fields: {username:1,status:1}});
 	})
 }
 

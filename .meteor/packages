@@ -9,3 +9,5 @@ bootstrap
 accounts-ui
 accounts-password
 iron:router
+mizzao:user-status
+
